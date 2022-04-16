@@ -42,7 +42,7 @@ class VideogameTest {
 	@Test
 	void test() {
 		assertNotNull(game);
-		assertEquals("name", game.getName());
+		assertEquals("name", game.getTitle());
 	}
 
 }
