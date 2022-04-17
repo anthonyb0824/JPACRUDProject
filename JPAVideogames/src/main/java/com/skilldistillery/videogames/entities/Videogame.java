@@ -1,5 +1,6 @@
 package com.skilldistillery.videogames.entities;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -12,60 +13,61 @@ import javax.persistence.Id;
 public class Videogame {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
 	private String title;
 	
 	@Column(name="co_op")
-	private String coOp;
+	private Boolean coOp;
 	
 	//TODO: change back to primitive
-	private String multiplayer;
+	private Boolean multiplayer;
 	
 	@Column(name="esrb_rating")
-	private String esrbRating;
+	private char esrbRating;
 	
 	private String platform;
 	
 	@Column(name="release_date")
-	private Date releaseDate;
+	private LocalDate releaseDate;
 	
 	private String developer;
 	
-	private String img_url;
+	@Column(name = "img_url")
+	private String imgUrl;
 	
 	public Videogame() {
 		
 	}
 
 	
-	public String getCoOp() {
+	public Boolean getCoOp() {
 		return coOp;
 	}
 
 
-	public void setCoOp(String coOp) {
+	public void setCoOp(Boolean coOp) {
 		this.coOp = coOp;
 	}
 
 
-	public String getMultiplayer() {
+	public Boolean getMultiplayer() {
 		return multiplayer;
 	}
 
 
-	public void setMultiplayer(String multiplayer) {
+	public void setMultiplayer(Boolean multiplayer) {
 		this.multiplayer = multiplayer;
 	}
 
 
-	public String getEsrbRating() {
+	public char getEsrbRating() {
 		return esrbRating;
 	}
 
 
-	public void setEsrbRating(String esrbRating) {
+	public void setEsrbRating(char esrbRating) {
 		this.esrbRating = esrbRating;
 	}
 
@@ -80,12 +82,12 @@ public class Videogame {
 	}
 
 
-	public Date getReleaseDate() {
+	public LocalDate getReleaseDate() {
 		return releaseDate;
 	}
 
 
-	public void setReleaseDate(Date releaseDate) {
+	public void setReleaseDate(LocalDate releaseDate) {
 		this.releaseDate = releaseDate;
 	}
 
@@ -100,13 +102,13 @@ public class Videogame {
 	}
 
 
-	public String getImg_url() {
-		return img_url;
+	public String getImgUrl() {
+		return imgUrl;
 	}
 
 
-	public void setImg_url(String img_url) {
-		this.img_url = img_url;
+	public void setImgUrl(String img_url) {
+		this.imgUrl = img_url;
 	}
 
 
@@ -131,7 +133,7 @@ public class Videogame {
 	public String toString() {
 		return "Videogame [id=" + id + ", title=" + title + ", coOp=" + coOp + ", multiplayer=" + multiplayer
 				+ ", esrbRating=" + esrbRating + ", platform=" + platform + ", releaseDate=" + releaseDate
-				+ ", developer=" + developer + ", img_url=" + img_url + "]";
+				+ ", developer=" + developer + "]";
 	}
 
 	

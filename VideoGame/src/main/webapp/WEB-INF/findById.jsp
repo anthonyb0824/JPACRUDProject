@@ -9,6 +9,14 @@
 <jsp:include page="../bootstrapNav.jsp"/>
 </head>
 <body>
+<h1>Search the video game library by id</h1>
+
+<form action="results.do" method=GET>
+<label>Search</label>
+<input type="text" name="id">
+<input type="submit">
+
+</form>
 
 </body>
 </html>

@@ -29,17 +29,15 @@ public class VideogameDAOImpl implements VideogameDAO {
 		em = emf.createEntityManager();
 		try {
 			Videogame managed = em.find(Videogame.class, id);
-			if(managed != null) {
+			if (managed != null) {
 				em.remove(managed);
 				removeSuccessful = !em.contains(managed);
 			}
-			
+
 			return removeSuccessful;
-		}catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println(e);
 			return removeSuccessful;
-		}finally {
-			em.close();
 		}
 	}
 
@@ -54,18 +52,24 @@ public class VideogameDAOImpl implements VideogameDAO {
 		managed.setPlatform(updatedGame.getPlatform());
 		managed.setReleaseDate(updatedGame.getReleaseDate());
 		managed.setDeveloper(updatedGame.getDeveloper());
-		managed.setImg_url(updatedGame.getImg_url());
-		
-		em.close();
+		managed.setImgUrl(updatedGame.getImgUrl());
+
 		return managed;
 	}
 
 	@Override
 	public Videogame create(Videogame game) {
 		em = emf.createEntityManager();
+
+		// start the transaction
+	    em.getTransaction().begin();
+	    // write the customer to the database
+	    em.persist(game);
+	    // update the "local" Customer object
+	    em.flush();
+	    // commit the changes (actually perform the operation)
+	    em.getTransaction().commit();
 		
-		em.persist(game);
-		em.close();
 		return game;
 	}
 

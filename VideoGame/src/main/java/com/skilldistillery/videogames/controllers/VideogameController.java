@@ -1,11 +1,19 @@
 package com.skilldistillery.videogames.controllers;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.videogames.data.VideogameDAO;
+import com.skilldistillery.videogames.entities.Videogame;
 
 @Controller
 public class VideogameController {
@@ -30,7 +38,9 @@ public class VideogameController {
 	}
 	
 	@RequestMapping(path="results.do")
-	public String results() {
+	public String results(@RequestParam int id, Model model) {
+		Videogame temp = dao.findById(id);
+		model.addAttribute("game",temp);
 		return "results";
 	}
 	
@@ -43,4 +53,35 @@ public class VideogameController {
 	public String findById() {
 		return "findById";
 	}
+	
+	@RequestMapping(path="new.do", method= RequestMethod.POST)
+	public String newVideoGame(@RequestParam("title")String title, 
+			@RequestParam("coOp")Boolean coOp, 
+			@RequestParam("multiPlayer")Boolean multi, 
+			@RequestParam("esrbRating")char rating, 
+			@RequestParam("platform")String platform, 
+			@RequestParam("releaseDate")String releaseDate, 
+			@RequestParam("developer")String developer, 
+			@RequestParam("imgUrl")String imgUrl, 
+			
+			Model model) throws ParseException {
+			Videogame temp = new Videogame();
+			LocalDate date = LocalDate.parse(releaseDate);
+			temp.setTitle(title);
+			temp.setCoOp(coOp);
+			temp.setMultiplayer(multi);
+			temp.setEsrbRating(rating);
+			temp.setPlatform(platform);
+			temp.setReleaseDate(date);
+			temp.setDeveloper(developer);
+			temp.setImgUrl(imgUrl);
+			
+			Videogame newGame = dao.create(temp);
+			
+			model.addAttribute("game",newGame);
+		
+		return "results";
+		
+	}
+
 }
