@@ -9,6 +9,10 @@
 <jsp:include page="../bootstrapNav.jsp"/>
 </head>
 <body>
-
+<form action="deleteById.do" method=POST>
+<label>Id to be deleted</label>
+<input type="text" name="id">
+<input type="submit">
+</form>
 </body>
 </html>

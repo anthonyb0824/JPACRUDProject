@@ -17,6 +17,14 @@
 		</div>
 		<div class="col">${game}</div>
 	</div>
+	
+	<div class="container">
+		<div class="col">
+			<img alt="" src="${updatedGame.imgUrl} ">
+
+		</div>
+		<div class="col">${updatedGame}</div>
+	</div>
 
 
 

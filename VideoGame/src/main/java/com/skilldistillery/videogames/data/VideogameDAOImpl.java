@@ -28,16 +28,21 @@ public class VideogameDAOImpl implements VideogameDAO {
 		boolean removeSuccessful = false;
 		em = emf.createEntityManager();
 		try {
+			em.getTransaction().begin();
 			Videogame managed = em.find(Videogame.class, id);
 			if (managed != null) {
 				em.remove(managed);
 				removeSuccessful = !em.contains(managed);
+				em.flush();
+				em.getTransaction().commit();
 			}
 
 			return removeSuccessful;
 		} catch (Exception e) {
 			System.out.println(e);
 			return removeSuccessful;
+		}finally {
+			
 		}
 	}
 
