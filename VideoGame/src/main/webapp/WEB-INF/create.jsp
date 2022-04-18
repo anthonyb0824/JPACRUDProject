@@ -14,9 +14,23 @@
 
 	<form action="new.do" method="POST">
 		<label>title</label> <input type="text" name="title" value="Title"> 
-		<label>co-op</label> <input type="text" name="coOp" value="co-op"> 
-		<label>Multiplayer</label><input type="text" name="multiPlayer" value="MultiPlayer"> 
-		<label>esrbRating</label><input type="text" name="esrbRating" Value="ESRB Rating">
+		<label>co-op</label> <!-- <input type="text" name="coOp" value="co-op">  -->
+		<select name="coOp">
+  			<option value="True">Yes</option>
+  			<option value="False">No</option>
+  			</select>
+		<label>Multiplayer</label><!-- <input type="text" name="multiPlayer" value="MultiPlayer">  -->
+		<select name="multiPlayer">
+  			<option value="True">Yes</option>
+  			<option value="False">No</option>
+  			</select>
+		<label>esrbRating</label><!-- <input type="text" name="esrbRating" Value="ESRB Rating"> -->
+		<select name="esrbRating">
+  			<option value="E">Everyone(E)</option>
+  			<option value="T">Teen(T)</option>
+  			<option value="M">Mature 17+(M)</option>
+  			<option value="A">Adult Only(A)</option>
+  			</select>
 		<label>Platform</label><input type="text" name="platform" value="Platform"> 
 		<label>Release Date</label><input type="text"name="releaseDate" value="releaseDate"> 
 		<label>Developer</label><input type="text" name="developer" value="developer">
