@@ -11,20 +11,9 @@
 <jsp:include page="../bootstrapNav.jsp"/>
 </head>
 <body class="container">
-<h1>Index</h1>
 
-<button type="button" class="btn btn-primary">Primary</button>
-
-<a href="create.do">create</a>
-<a href="delete.do">delete</a>
-<a href="results.do">results</a>
-<a href="update.do">update</a>
-<a href="findById.do">findById</a>
-
-
-
-
-
+<a class="btn btn-primary" href="findVideoGameById.html" role="button">Find a Video Game By Id</a>
+<a class="btn btn-primary" href="create.do" role="button">Create New Film</a>
 
 
 <script

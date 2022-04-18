@@ -11,8 +11,8 @@
 <body class="container">
 <h1 class='text-center'>Update a Video Game by Id</h1>
 <form action="updateById.do" method="POST">
-		<label>Id</label> </a><input type="text" name="id">
-		<label>Title</label> <input type="text" name="title" value="Title"> 
+		<label>Id</label> <input type="text" name="id">
+		<label>Title</label> <input type="text" name="title" placeholder="Title"> 
 		<label>co-op</label> <!-- <input type="text" name="coOp" value="co-op">  -->
 		<select name="coOp">
   			<option value="True">Yes</option>
