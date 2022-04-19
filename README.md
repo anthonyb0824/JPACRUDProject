@@ -61,7 +61,7 @@
 
 <ol>
 <li>
-The MVCFilmSite Dynamic Web App is Run on a Apache Tomahawk v8.5 server and launched through Spring Tool Suite 4
+The JPACRUDProject Dynamic Web App is Run on a Apache Tomahawk v8.5 server and launched through Spring Tool Suite 4
 </li>
 <li>
 Upon Launch we are brought to Home Page reflected in <strong>/WEB-INF/index.jsp</strong>
